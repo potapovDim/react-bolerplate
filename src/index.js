@@ -1,22 +1,11 @@
 import React, {Component} from 'react'
 import ReactDom from 'react-dom'
+import {Provider} from 'react-redux'
+import store from './reducers/rootReducer'
 
-class App extends Component {
-  state = {
-    hash: 1
-  }
-  addNewHash = () => {
-    window.location.hash = this.state.hash + 1
-    this.setState({
-      hash: this.state.hash + 1
-    })
-  }
-  render () {
-    return <div>
-    <button onClick={this.addNewHash}>add hash</button>
-    bolerplate
-    </div>
-  }
-}
+import MainPage from './main-page'
 
-ReactDom.render(<App />, document.getElementById('app'))
+ReactDom.render(
+  <Provider store={store}>
+    <MainPage />
+  </Provider >, document.getElementById('app'))
