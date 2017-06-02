@@ -1,10 +1,6 @@
 import React, {Component} from 'react'
 import ReactDom from 'react-dom'
 
-class App extends Component {
-  render () {
-    return <div>bolerplate</div>
-  }
-}
+import routes from './routes'
 
-ReactDom.render(<App />, document.getElementById('app'))
+ReactDom.render(routes, document.getElementById('app'))
