@@ -23,17 +23,11 @@
   },
   "homepage": "https://github.com/potapovDim/react-bolerplate#readme",
   "dependencies": {
-<<<<<<< HEAD
     "history": "^4.6.1",
-=======
-    "has-flag": "^2.0.0",
-    "nuka-carousel": "^2.0.4",
-    "rc-slider": "^8.0.2",
->>>>>>> hash
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-redux": "^5.0.5",
-    "react-router": "2.6.0",
+    "react-router": "^2.6.0",
     "redux": "^3.6.0"
   },
   "devDependencies": {
