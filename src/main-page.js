@@ -2,8 +2,11 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 
 import {MainPageProjectItem} from './components/main-page-project-item'
+
 import {StatusFilter} from './components/status-filter'
 import {CategoryFilter} from './components/category-filter'
+import {TownRegionFilter} from './components/town-region-filter'
+import {MoneyFilter} from './components/money-filter'
 
 class App extends Component {
   state = {
@@ -15,19 +18,31 @@ class App extends Component {
       hash: this.state.hash + 1
     })
   }
+
   activateFilterByStatus = (action) => {
     const {dispatch} = this.props
     dispatch(action)
   }
+
   activateFilterByCategory = (action) => {
     const {dispatch} = this.props
     dispatch(action)
   }
+
+  activateFilterByTownRegion = (action) => {
+    const {dispatch} = this.props
+    dispatch(action)
+  }
   render () {
-    const {projects, statuses, categories} = this.props
-    
+    const {projects, statuses, categories, townRegions} = this.props
+    const joinTownWithRegion = (project) => {
+      return project.town.concat(' \\ ') + project.region
+    }
+
     let activeProjects = statuses.activeFilterStatus ? projects.filter(project => project.status === statuses.activeFilterStatus)
-                : projects 
+                                                     : projects
+    activeProjects = townRegions.activeTownRegion ? activeProjects.filter(project => joinTownWithRegion(project) === townRegions.activeTownRegion)
+                                               : activeProjects
     activeProjects = categories.activeCategories.length === 0 
                 ? activeProjects
                 : activeProjects.filter(project => categories.activeCategories.includes(project.category.title))
@@ -36,6 +51,7 @@ class App extends Component {
     <button onClick={this.addNewHash}>add hash</button>
     {activeProjects}
     bolerplate
+    <MoneyFilter />
     <StatusFilter
         activateFilterByStatus={this.activateFilterByStatus}
         {...statuses}
@@ -44,6 +60,10 @@ class App extends Component {
         activateFilterByCategory={this.activateFilterByCategory}
         {...categories} 
       />
+      <TownRegionFilter 
+        activateFilterByTownRegion={this.activateFilterByTownRegion}
+        {...townRegions}
+        />
     </div>
   }
 }

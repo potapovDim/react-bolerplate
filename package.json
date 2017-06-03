@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/potapovDim/react-bolerplate#readme",
   "dependencies": {
+    "rc-slider": "^8.0.2",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-redux": "^5.0.5",

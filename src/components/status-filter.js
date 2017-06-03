@@ -3,6 +3,12 @@ import {connect} from 'react-redux'
 import {activateFilterStatus} from '../reducers/status'
 
 export class StatusFilter extends Component {
+  componentWillMount() {
+    const {activeFilterStatus} = this.props
+    this.setState({
+      activeFilter: activeFilterStatus
+    })
+  }
   state = {
     activeFilter: null
   }
