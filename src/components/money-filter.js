@@ -10,6 +10,19 @@ export class MoneyFilter extends Component {
     maxMoney: 350000
   }
   changeMinMoney = (minMoney) => {
+    if(minMoney.length > 1 && minMoney[0] === '0') {
+      minMoney = minMoney.split('')
+      minMoney.shift()
+      minMoney = minMoney.join('')
+    }
+    if(+minMoney > this.state.maxMoney){
+      console.log(minMoney)
+      minMoney = this.state.maxMoney - 1000
+    }
+    if(+minMoney < 0){
+      minMoney = 0
+    }
+    console.log(minMoney)
     const ranges = [...this.state.ranges]
     ranges[1] = minMoney * -1
     this.setState({
@@ -19,6 +32,13 @@ export class MoneyFilter extends Component {
     })
   }
   changeMaxMoney = (maxMoney) => {
+    if(+maxMoney < this.state.minMoney){
+      maxMoney = this.state.minMoney + 1000
+    }
+    if(maxMoney > 350000){
+      maxMoney = 350000
+    }
+
     const ranges = [...this.state.ranges]
     ranges[0] = maxMoney * -1
     this.setState({
