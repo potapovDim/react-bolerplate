@@ -26,7 +26,7 @@ export class TownRegionFilter extends Component {
     const statusTitle = activeFilter === null
                         ? 'Місто \ район'
                         : activeFilter
-                        
+                    
     const townRegionsList = townsRegions.map((towReg, index) => 
               <li key={index}><button onClick={() => this.activateTowrRegion(towReg, activateFilterByTownRegion)}>{towReg}</button></li> )
     return (

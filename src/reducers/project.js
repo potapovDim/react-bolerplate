@@ -18,7 +18,7 @@ const initialState = [
     region: 'Голосіївський',
     address: '',
     destinationTime: '',
-    money: '',
+    money: 200000,
     descriptionFull: {
       trouble: '',
       howDoIt: '',
@@ -52,7 +52,7 @@ const initialState = [
     region: 'Шевченківський',
     address: '',
     destinationTime: '',
-    money: '',
+    money: 350000,
     descriptionFull: {
       trouble: '',
       howDoIt: '',
@@ -86,7 +86,7 @@ const initialState = [
     region: 'Центральний',
     address: '',
     destinationTime: '',
-    money: '',
+    money: 50000,
     descriptionFull: {
       trouble: '',
       howDoIt: '',
@@ -120,7 +120,7 @@ const initialState = [
     region: 'Шевченківський',
     address: '',
     destinationTime: '',
-    money: '',
+    money: 100000,
     descriptionFull: {
       trouble: '',
       howDoIt: '',

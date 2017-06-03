@@ -2,12 +2,12 @@ const ACTIVATE_MONEY_FILTER = 'ACTIVATE_MONEY_FILTER'
 const DROP_ALL_FILTERS = 'DROP_ALL_FILTERS'
 
 const initialState = {
-  initialMoneyRange: [0, 35000],
-  activeMoneyRange: [0, 35000]
+  initialMoneyRange: [0, 350000],
+  activeMoneyRange: [0, 350000]
 }
 
 export const activateFilterMoney = (moneyRange) => ({
-  type: ACTIVATE_CATEGORY_FILTER, moneyRange
+  type: ACTIVATE_MONEY_FILTER, moneyRange
 })
 
 export const dropAllFilters = () => ({

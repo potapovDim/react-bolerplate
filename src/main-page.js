@@ -33,14 +33,19 @@ class App extends Component {
     const {dispatch} = this.props
     dispatch(action)
   }
+
+  activateFilterByMoney = (action) => {
+    const {dispatch} = this.props
+    dispatch(action)
+  }
   render () {
-    const {projects, statuses, categories, townRegions} = this.props
+    const {projects, statuses, categories, townRegions, money} = this.props
     const joinTownWithRegion = (project) => {
       return project.town.concat(' \\ ') + project.region
     }
-
     let activeProjects = statuses.activeFilterStatus ? projects.filter(project => project.status === statuses.activeFilterStatus)
                                                      : projects
+    activeProjects = activeProjects.filter(project => money.activeMoneyRange[0] <= project.money && project.money <= money.activeMoneyRange[1])
     activeProjects = townRegions.activeTownRegion ? activeProjects.filter(project => joinTownWithRegion(project) === townRegions.activeTownRegion)
                                                : activeProjects
     activeProjects = categories.activeCategories.length === 0 
@@ -51,7 +56,9 @@ class App extends Component {
     <button onClick={this.addNewHash}>add hash</button>
     {activeProjects}
     bolerplate
-    <MoneyFilter />
+    <MoneyFilter 
+        activateFilterByMoney={this.activateFilterByMoney}
+        {...money}/>
     <StatusFilter
         activateFilterByStatus={this.activateFilterByStatus}
         {...statuses}

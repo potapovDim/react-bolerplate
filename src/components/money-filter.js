@@ -1,46 +1,46 @@
 import React, {Component} from 'react'
 import Slider, { Range } from 'rc-slider';
-import {activateFilterTownRegion} from '../reducers/towns'
+import {activateFilterMoney} from '../reducers/money'
 
 export class MoneyFilter extends Component {
-  changeMinMoney = (minMoney) => {
-    console.log(minMoney)
-    this.setState({
-      ...this.state,
-      minMoney: +minMoney
-    })
-    console.log(this.state)
-  }
-  changeMaxMoney = (maxMoney) => {
-    console.log(maxMoney)
-    this.setState({
-      ...this.state,
-      maxMoney: +maxMoney
-    })
-    console.log(this.state)
-  }
   state = {
-    minMoney: 0, 
+    minMoney: 0,
+    ranges: [-350000, 0],
     activeFilter: null,
     maxMoney: 350000
   }
-
-  handleChange = (rangeValue) => {
-    
-    console.log(rangeValue, console.log('range changed!!!!!!!!!!!!!!!'))
-    let min = rangeValue[0]
-    let max = rangeValue[1]
-    if(min >= max) {
-      min = max - 100
-    }
-    console.log(rangeValue)
+  changeMinMoney = (minMoney) => {
+    const ranges = [...this.state.ranges]
+    ranges[1] = minMoney * -1
     this.setState({
+      ...this.state,
+      ranges: ranges,
+      minMoney: +minMoney
+    })
+  }
+  changeMaxMoney = (maxMoney) => {
+    const ranges = [...this.state.ranges]
+    ranges[0] = maxMoney * -1
+    this.setState({
+      ...this.state,
+      ranges,
+      maxMoney: +maxMoney
+    })
+  }
+  handleChange = (rangeValue) => {
+    let max = -1 * rangeValue[0]
+    let min = -1 * rangeValue[1] 
+    this.setState({
+      ranges: rangeValue,
       minMoney: min, 
       maxMoney: max
     })
   }
+  submiMoneyFilter = () => {
+    const {activateFilterByMoney} = this.props
+    activateFilterByMoney(activateFilterMoney([this.state.minMoney, this.state.maxMoney]))
+  }
   render () {
-    console.log('!!!!!!!!!!!!!!' ,this.state.maxMoney,this.state.minMoney)
     return (
       <div>
         <div><button>DSKJSADJSAL</button></div>
@@ -50,13 +50,13 @@ export class MoneyFilter extends Component {
         <input type="text"
                value={this.state.minMoney}
                onInput={(event) => this.changeMinMoney(event.target.value)}/>
-        <button>OK</button>
+        <button onClick={this.submiMoneyFilter}>OK</button>
         <br />
         <div style={{width: 400}}>
-          <Range min={0}
-                 max={350000}
+          <Range min={-350000}
+                 max={0}
                  defaultValue={[0 , 350000]}
-                 value={[this.state.minMoney, this.state.maxMoney]}
+                 value={[this.state.ranges[0], this.state.ranges[1]]}
                  tipFormatter={value => `${value}%`} 
                  onChange={this.handleChange}
                  pushable 
