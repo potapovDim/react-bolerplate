@@ -5,7 +5,6 @@ import {activateFilterTownRegion} from '../reducers/towns'
 export class TownRegionFilter extends Component {
   componentWillMount() {
     const {activeTownRegion} = this.props
-    console.log(this.props.activeTownRegion)
     this.setState({
       activeFilter: activeTownRegion
     })

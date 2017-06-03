@@ -2,11 +2,13 @@ import React, { Component } from 'react'
 
 export class Project extends Component {
   componentWillMount(){
-    const {backStateHistory} = this.props
-    window.addEventListener('popstate', backStateHistory);
+    const {backStateHistory, focusedProject: {title}} = this.props
+    const assertCorrectBrowserHistory = () => {
+      !window.location.hash.includes(title) && backStateHistory()
+    }
+    window.addEventListener('popstate', assertCorrectBrowserHistory);
   }
   render() {
-    console.log(this.props)
     const {focusedProject: {
       title,
       status,

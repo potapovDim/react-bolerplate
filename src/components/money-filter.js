@@ -16,13 +16,11 @@ export class MoneyFilter extends Component {
       minMoney = minMoney.join('')
     }
     if(+minMoney > this.state.maxMoney){
-      console.log(minMoney)
       minMoney = this.state.maxMoney - 1000
     }
     if(+minMoney < 0){
       minMoney = 0
     }
-    console.log(minMoney)
     const ranges = [...this.state.ranges]
     ranges[1] = minMoney * -1
     this.setState({

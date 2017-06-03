@@ -13,6 +13,16 @@ import {focusProject} from './reducers/project'
 import { Project } from './components/project'
 
 class App extends Component {
+  componentWillMount() {
+    const { projects: {projectsState}, dispatch} = this.props    
+    let conuntAssert = 1
+    const assertChangehistory = () => {
+      projectsState.forEach((project) => {
+        window.location.hash.includes(project.title) && this.initProject(project)
+      })
+    }
+    window.addEventListener('popstate', assertChangehistory);
+  }
   initProject = (project) => {
     const {dispatch} = this.props
     dispatch(focusProject(project))
@@ -21,7 +31,6 @@ class App extends Component {
   backStateHistory = () => {
     const {dispatch} = this.props
     dispatch(focusProject(null))
-    window.location.hash = project.title
   }
   activateFilterByStatus = (action) => {
     const { dispatch } = this.props
