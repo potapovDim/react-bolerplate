@@ -2,9 +2,7 @@
   "name": "react-bolerplate",
   "version": "0.0.1",
   "description": "react",
-  "main": "\"\"",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --hot --inline --open",
     "build": "webpack"
   },
@@ -24,7 +22,6 @@
   "homepage": "https://github.com/potapovDim/react-bolerplate#readme",
   "dependencies": {
     "has-flag": "^2.0.0",
-    "history": "^4.6.1",
     "nuka-carousel": "^2.0.4",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
