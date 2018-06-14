@@ -22,6 +22,7 @@
     },
     "homepage": "https://github.com/potapovDim/react-bolerplate#readme",
     "dependencies": {
+        "awb": "^0.4.77",
         "has-flag": "^2.0.0",
         "nuka-carousel": "^2.0.4",
         "react": "^15.5.4",
