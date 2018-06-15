@@ -5,6 +5,8 @@
   "scripts": {
     "start": "webpack-dev-server --hot --inline --open",
     "test": "mocha $(find ./test/ -path '*.test.*') --compilers js:babel-core/register --require ignore-styles --require ./test/setup.js",
+    "pree2e": "awb standalone gecko chrome",
+    "e2e": "mocha $(find ./e2e/ -path '*.spec.*') --timeout 25000",
     "build": "webpack"
   },
   "repository": {
