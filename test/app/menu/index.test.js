@@ -5,6 +5,6 @@ import {expect} from 'chai'
 describe('Menu', () => {
   it('render test', () => {
     const wrapper = mount(<Menu />)
-    expect(wrapper.find('li').length).to.eql(10)
+    expect(wrapper.find('li').length).to.eql(9)
   })
 })
