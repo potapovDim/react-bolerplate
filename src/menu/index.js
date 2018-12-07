@@ -1,27 +1,16 @@
 import React from 'react'
 import '../styles/menu.scss'
 
-export const Menu = (props) => {
+const Menu = ({openView, views}) => {
   return (
     <div>
-      <h3>Contents</h3>
+      <h3>Navigation menu</h3>
       <ul>
-        <li>Planting
-        <ul>
-            <li>What is dirt</li>
-            <li>How to shovel</li>
-            <li>When to stop</li>
-          </ul>
-        </li>
-        <li>Watering
-        <ul>
-            <li>When</li>
-            <li>How</li>
-            <li>Why</li>
-          </ul>
-        </li>
-        <li>Harvesting</li>
+        {Object.keys(views).map((menuItem, index) => <li key={menuItem} onClick={() => openView(views[menuItem])}>{views[menuItem]}</li>)}
       </ul>
     </div>
   )
 }
+
+export {Menu}
+
