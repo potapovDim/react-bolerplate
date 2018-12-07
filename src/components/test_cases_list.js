@@ -10,7 +10,8 @@ class TestCaseList extends Component {
   render() {
     return (
       <div>
-        <button>Add new step</button>
+        <button>Add new Case</button>
+        <button>Sort cases</button>
       </div>
     )
   }

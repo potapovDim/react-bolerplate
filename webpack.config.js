@@ -24,50 +24,49 @@ module.exports = {
       }, {
         test: /\.scss$/,
         use: ExtractTextPlugin.extract({
-         fallback: 'style-loader',
-         use: [{
-           loader: 'css-loader',
-           options: {
-             importLoaders: 1,
-             modules: false,
-             sourceMap: true
-           }
-         }, {
-           loader: 'postcss-loader',
-           options: {
-             sourceMap: true
-           }
-         }, {
-           loader: 'sass-loader',
-           options: {
-             sourceMap: true
-           }
-         }]
-      })
-    }, {
-      test: /\.(jpe?g|png|gif)$/i,
-      loader: 'file-loader',
-      query: {
-        name: 'images/[name]-[hash].[ext]?[hash]'
-      }
-    }, {
+          fallback: 'style-loader',
+          use: [{
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1,
+              modules: false,
+              sourceMap: true
+            }
+          }, {
+            loader: 'postcss-loader',
+            options: {
+              sourceMap: true
+            }
+          }, {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true
+            }
+          }]
+        })
+      }, {
+        test: /\.(jpe?g|png|gif)$/i,
+        loader: 'file-loader',
+        query: {
+          name: 'images/[name]-[hash].[ext]?[hash]'
+        }
+      }, {
         test: /\.svg$/,
         loader: 'svg-inline-loader'
-    }, {
-      test: /\.(eot|ttf|woff|woff2)/,
-      loader: 'file-loader',
-      query: {
-        name: 'fonts/[name].[ext]?[hash]'
+      }, {
+        test: /\.(eot|ttf|woff|woff2)/,
+        loader: 'file-loader',
+        query: {
+          name: 'fonts/[name].[ext]?[hash]'
+        }
       }
-    }
-  ]},
+    ]
+  },
   plugins: [
     new ExtractTextPlugin({filename: 'style.css', allChunks: true}),
     new SvgStore({
       svgoOptions: {
-        plugins: [
-          { removeTitle: true }
-        ]
+        plugins: [{removeTitle: true}]
       },
       prefix: 'icon'
     })
