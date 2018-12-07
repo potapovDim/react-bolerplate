@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 
 // isExecuted: boolean
+// suit: string
 // title: String
 // _id: string
 // steps: Array < {
@@ -9,7 +10,8 @@ import React, {Component} from 'react'
 //   expectedResult: string
 // } >
 
-const Step = ({stepTitle, expectedResult}) => (<div>
+
+const Step = ({stepTitle, expectedResult, suit}) => (<div>
   <div>{stepTitle}</div>
   {expectedResult && <div>{expectedResult}</div>}
 </div>)
@@ -23,12 +25,10 @@ const TestCaseViewCurrentCase = ({isExecuted, title, steps}) => (<div>
 class TestCase extends Component {
 
   componentWillMount() {
-    console.log(this.props)
   }
 
   render() {
     const {testCases} = this.props
-    console.log(testCases, '!')
     return (
       <div>
         <button>Update test case</button>
@@ -37,7 +37,5 @@ class TestCase extends Component {
     )
   }
 }
-
-TestCase
 
 export {TestCase}
