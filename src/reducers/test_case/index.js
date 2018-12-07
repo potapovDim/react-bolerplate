@@ -13,8 +13,34 @@ import {ADD_TEST_CASE, REMOVE_TEST_CASE, UPDATE_TEST_CASE} from './action_types'
   }
 */
 
+const defaultState = [
+  {
+    isExecuted: false,
+    title: 'TEST TEST CASE 1',
+    _id: 'test-id-1',
+    steps: [{
+      stepPosition: 0,
+      stepTitle: 'test step 1',
+      expectedResult: 'some expected result'
+    }, {
+      stepPosition: 1,
+      stepTitle: 'test step 2',
+      expectedResult: 'some expected result'
+    },
+    {
+      stepPosition: 2,
+      stepTitle: 'test step 3',
+      expectedResult: 'some expected result dsjadlkasjldkjaslkjldjlksalkdjlkasjj'
+    },
+    {
+      stepPosition: 3,
+      stepTitle: 'test step 4'
+    }]
+  }
+]
 
-const testCases = (state = [], action) => {
+
+const testCases = (state = defaultState, action) => {
   switch(action.type) {
     case ADD_TEST_CASE: {
       return [...state].push(action.testCaseData)

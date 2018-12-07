@@ -1,5 +1,24 @@
 import React, {Component} from 'react'
-import {connect} from 'react-redux'
+
+// isExecuted: boolean
+// title: String
+// _id: string
+// steps: Array < {
+//   stepPosition: number // should start with,
+//   stepTitle: string
+//   expectedResult: string
+// } >
+
+const Step = ({stepTitle, expectedResult}) => (<div>
+  <div>{stepTitle}</div>
+  {expectedResult && <div>{expectedResult}</div>}
+</div>)
+
+const TestCaseViewCurrentCase = ({isExecuted, title, steps}) => (<div>
+  <div>{title}</div>
+  {isExecuted && <span>Executed</span>}
+  {steps.map((step) => <Step {...step} />)}
+</div>)
 
 class TestCase extends Component {
 
@@ -8,14 +27,17 @@ class TestCase extends Component {
   }
 
   render() {
+    const {testCases} = this.props
+    console.log(testCases, '!')
     return (
       <div>
-        <button>Add new step</button>
+        <button>Update test case</button>
+        {testCases.map((testCase) => <TestCaseViewCurrentCase {...testCase} />)}
       </div>
     )
   }
 }
 
-const ConnectedTestCase = connect()(TestCase)
+TestCase
 
-export {ConnectedTestCase}
+export {TestCase}
