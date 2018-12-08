@@ -1,4 +1,4 @@
-import {ADD_TEST_CASE, REMOVE_TEST_CASE, UPDATE_TEST_CASE} from './action_types'
+import {ADD_TEST_CASE, REMOVE_TEST_CASE, UPDATE_TEST_CASE} from '../action_types'
 
 /* test case object structure
   {
