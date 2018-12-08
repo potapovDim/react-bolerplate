@@ -1,4 +1,4 @@
-import {ADD_TEST_CASE, REMOVE_TEST_CASE, UPDATE_TEST_CASE} from '../action_types'
+import {ADD_TEST_CASE, REMOVE_TEST_CASE, UPDATE_TEST_CASE, REMOVE_TEST_SITE_WITH_RELATED_CASES} from '../action_types'
 
 /* test case object structure
   {
@@ -16,6 +16,7 @@ import {ADD_TEST_CASE, REMOVE_TEST_CASE, UPDATE_TEST_CASE} from '../action_types
 const defaultState = [
   {
     isExecuted: false,
+    testSuit: null,
     title: 'TEST TEST CASE 1',
     _id: 'test-id-1',
     steps: [{
@@ -39,7 +40,6 @@ const defaultState = [
   }
 ]
 
-
 const testCases = (state = defaultState, action) => {
   switch(action.type) {
     case ADD_TEST_CASE: {
@@ -52,8 +52,12 @@ const testCases = (state = defaultState, action) => {
       const {_id} = action.testCaseData
       return state.map((testCase) => testCase._id === _id ? action.testCaseData : testCase)
     }
-    default:
+    case REMOVE_TEST_SITE_WITH_RELATED_CASES: {
+      return state.map((testCase) => testCase.testSuit !== action.testSuitId)
+    }
+    default: {
       return state
+    }
   }
 }
 

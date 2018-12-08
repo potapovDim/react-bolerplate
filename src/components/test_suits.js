@@ -1,8 +1,14 @@
 import React, {Component} from 'react'
+import {connect} from 'react-redux'
 
-
-class Suit extends Component {
-
+class TestSuits extends Component {
+  render() {
+    return (<div>
+      Test Suits
+    </div>)
+  }
 }
 
-export {Suit}
+const ConnectedTestSuits = connect((state) => state)(TestSuits)
+
+export {ConnectedTestSuits}

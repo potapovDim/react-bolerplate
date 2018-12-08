@@ -6,7 +6,7 @@ import {store} from './reducers'
 import {Menu} from './menu'
 import {ConnectedTestCaseList} from './components/test_cases_list'
 import {AboutProject} from './components/about_project'
-
+import {Suits} from './components/test_suits'
 
 const layouts = {
   preview: 'Main page',
