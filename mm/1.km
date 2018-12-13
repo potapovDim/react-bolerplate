@@ -131,8 +131,8 @@
                     "created": 1544278117781,
                     "text": "Test case",
                     "layout_right_offset": {
-                        "x": -658,
-                        "y": -202
+                        "x": -849.999993896485,
+                        "y": -313.9999964396164
                     },
                     "hyperlink": null,
                     "hyperlinkTitle": null,
@@ -157,9 +157,22 @@
                             "created": 1544278208904,
                             "text": "Test case Title",
                             "layout_right_offset": {
-                                "x": -398.74999405816186,
-                                "y": -108.74999837949866
+                                "x": -446.74999253228293,
+                                "y": 77.24999570772115
                             }
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "bqfe3jxudbk0",
+                            "created": 1544462035093,
+                            "text": "dsadsadsa",
+                            "layout_right_offset": {
+                                "x": -337.9999892552702,
+                                "y": 281.9999910354623
+                            },
+                            "progress": 4
                         },
                         "children": []
                     }

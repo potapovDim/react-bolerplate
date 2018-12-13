@@ -13,4 +13,3 @@ const Menu = ({openView, views}) => {
 }
 
 export {Menu}
-
