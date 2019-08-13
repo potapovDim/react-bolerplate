@@ -1,4 +1,4 @@
-import App from '../../src/main-page'
+import App from '../../src'
 import {mount} from 'enzyme'
 import {expect} from 'chai'
 
